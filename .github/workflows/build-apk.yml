@@ -35,7 +35,7 @@ jobs:
       - name: Initialize, Generate Icons, and Sync Android
         run: |
           npx cap add android
-          npx @capacitor/assets generate --androidProject android --assetPath . --icon
+          npx @capacitor/assets generate --androidProject android --assetPath assets --icon
           npx cap sync android
 
       - name: Build Android App (Debug APK)
