@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="140" fill="#FFF0F5"/>
+  <!-- Cute Blushing Heart -->
+  <path d="M256,420 L224,388 C116,290 60,240 60,174 C60,120 102,78 156,78 C186,78 216,92 236,116 L256,138 L276,116 C296,92 326,78 356,78 C410,78 452,120 452,174 C452,240 396,290 288,388 Z" fill="#FF85A1"/>
+  <!-- Happy Eyes -->
+  <circle cx="195" cy="190" r="16" fill="#4A3E3D"/>
+  <circle cx="317" cy="190" r="16" fill="#4A3E3D"/>
+  <circle cx="191" cy="186" r="5" fill="#FFFFFF"/>
+  <circle cx="313" cy="186" r="5" fill="#FFFFFF"/>
+  <!-- Blush Cheeks -->
+  <ellipse cx="155" cy="220" rx="20" ry="11" fill="#FFB3C6" opacity="0.85"/>
+  <ellipse cx="357" cy="220" rx="20" ry="11" fill="#FFB3C6" opacity="0.85"/>
+  <!-- Cute smiley mouth -->
+  <path d="M 236,215 Q 256,235 276,215" stroke="#4A3E3D" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <!-- Shiny Yellow Star -->
+  <path d="M 390,75 L 398,90 L 415,93 L 402,105 L 406,121 L 390,113 L 374,121 L 378,105 L 365,93 L 382,90 Z" fill="#FFE066"/>
+</svg>

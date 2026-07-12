@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A cute, interactive, and funny game created specially for Shivi to brighten her day and make her smile!">
+    <title>PiyuShivi</title>
+    <!-- Google Fonts: Fredoka for rounded bubbly look & Quicksand for clean reading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@400..700&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css?v=1.2">
+    <!-- PWA Capabilities -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#FF85A1">
+    <link rel="apple-touch-icon" href="icon.png">
+</head>
+<body>
+    <!-- Floating Background Particles (managed by script on Canvas) -->
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+    <!-- App Container -->
+    <main id="app-container">
+        <!-- Floating Sound Control -->
+        <button id="sound-toggle-btn" class="cute-icon-btn" aria-label="Toggle Sound Effects" title="Toggle Sound">
+            <span id="sound-icon">🔊</span>
+        </button>
+
+        <!-- Screen 1: Welcome/Intro Screen -->
+        <section id="welcome-screen" class="app-screen active-screen">
+            <div class="cute-card bubble-float">
+                <div class="mascot-container">
+                    <div class="cute-mascot">
+                        <div class="mascot-ears">
+                            <span class="ear-left"></span>
+                            <span class="ear-right"></span>
+                        </div>
+                        <div class="mascot-face">
+                            <div class="mascot-eyes">
+                                <span class="eye-left"></span>
+                                <span class="eye-right"></span>
+                            </div>
+                            <div class="mascot-blush"></div>
+                            <div class="mascot-mouth">w</div>
+                        </div>
+                        <div class="mascot-heart-holder">❤️</div>
+                    </div>
+                </div>
+                <h1 id="main-title">Hello Shivi! ✨</h1>
+                <p class="subtitle-text">Piyush has made a special interactive game just for you! Ready to test your friendship and have a good laugh? 😄</p>
+                <button id="start-quiz-btn" class="primary-cute-btn">Let's Play! 🚀</button>
+            </div>
+        </section>
+
+        <!-- Screen 2: Quiz Screen -->
+        <section id="quiz-screen" class="app-screen">
+            <div class="quiz-card-container">
+                <!-- Progress Header -->
+                <div class="quiz-progress-wrapper">
+                    <span id="progress-text">Question 1 of 5</span>
+                    <div class="progress-bar-bg">
+                        <div id="progress-bar-fill" style="width: 20%;"></div>
+                    </div>
+                </div>
+
+                <!-- Active Question Box -->
+                <div class="question-box">
+                    <h2 id="question-text">Piyush ke baare mein aapka kya khayal hai?</h2>
+                </div>
+
+                <!-- Options Area (Absolute positioned items will dodge inside here) -->
+                <div id="options-container" class="options-grid">
+                    <!-- Options injected dynamically by JS -->
+                </div>
+
+                <!-- Fun hint text/reaction overlay -->
+                <div id="quiz-hint-box" class="hint-message"></div>
+            </div>
+        </section>
+
+        <!-- Screen 3: Victory & Mood Booster Screen -->
+        <section id="victory-screen" class="app-screen">
+            <div class="cute-card final-card scale-in">
+                <div class="crown-emoji">👑✨</div>
+                <h2>Shivi, You are the Best! ❤️</h2>
+                <p class="congrats-text">Aapne saare sahi answers choose kiye! (Waise koi aur option tha hi nahi 😜)</p>
+
+                <!-- Personal Message Box -->
+                <div class="letter-box">
+                    <div class="letter-seal">💌</div>
+                    <h3>Piyush's Special Message for Shivi:</h3>
+                    <p class="personal-message">
+                        Dear Shivi, <br><br>
+                        Aap hamesha aise hi hanste muskuraate raho. Agar kabhi mood thoda off ho, toh bas yaad rakhna ki Piyush is always there to make you smile, irritate you, and support you. You are an amazing friend! 🌸✨
+                    </p>
+                </div>
+
+                <!-- Interactive Mood Boosters -->
+                <div class="mood-booster-controls">
+                    <h3>Mood Booster Kit 🎈</h3>
+                    <div class="booster-buttons">
+                        <button id="compliment-btn" class="booster-btn pink-btn">
+                            <span>💡 Get Compliment</span>
+                        </button>
+                        <button id="flower-btn" class="booster-btn orange-btn">
+                            <span>🌸 Send Virtual Flower</span>
+                        </button>
+                        <button id="chocolate-btn" class="booster-btn chocolate-btn">
+                            <span>🍫 Give Chocolate</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Custom Compliment Output Container -->
+                <div id="compliment-output" class="bubble-speech" style="display: none;"></div>
+
+                <!-- Flower Basket / Items Container for dynamic screen drops -->
+                <div id="flower-garden" class="garden-area"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Main JavaScript File -->
+    <script src="script.js?v=1.2"></script>
+    <!-- Register Service Worker for PWA Installation -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js?v=1.3')
+                    .then(reg => console.log('Service Worker registered successfully!'))
+                    .catch(err => console.log('Service Worker registration failed:', err));
+            });
+        }
+    </script>
+</body>
+</html>

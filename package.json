@@ -1,0 +1,15 @@
+{
+  "name": "cute-corner",
+  "version": "1.0.0",
+  "description": "Cute Quiz App for Shivi",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static web assets ready'"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/assets": "^3.0.4",
+    "@capacitor/cli": "^6.0.0",
+    "@capacitor/core": "^6.0.0"
+  }
+}
