@@ -22,7 +22,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Setup Java JDK 17
         uses: actions/setup-java@v3
@@ -33,7 +33,7 @@ jobs:
       - name: Initialize, Generate Icons, and Sync Android
         run: |
           npx cap add android
-          npx @capacitor/assets generate --androidProject android --assetPath .
+          npx @capacitor/assets generate --androidProject android --assetPath . --icon
           npx cap sync android
 
       - name: Build Android App (Debug APK)
